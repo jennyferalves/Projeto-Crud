@@ -1,10 +1,10 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import './App.css';
 import Formulario from './Formulario';
 import Tabela from './Tabela';
 
 function App() {
-  const[btnCadastrar, setBtnCadastrar] = useState(true);
+  const[btnCadastrar] = useState(true);
   const[produtos, setProdutos] =useState([]);
 
   useEffect(() => {
@@ -15,9 +15,8 @@ function App() {
 
   return (
     <div>
-      <p>{JSON.stringify(produtos)}</p>
       <Formulario botao={btnCadastrar}/>
-      <Tabela/>
+      <Tabela vetor={produtos}/>
     </div>
   );
 }
